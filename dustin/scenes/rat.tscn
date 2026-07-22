@@ -205,7 +205,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"bite",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -254,7 +254,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -306,26 +306,29 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run",
-"speed": 6.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvyck"]
 size = Vector2(31, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhepj"]
-radius = 100.07997
+radius = 105.01904
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ueu5a"]
 size = Vector2(45, 26)
 
 [node name="rat" type="CharacterBody2D" unique_id=834667787]
 script = ExtResource("1_v1adf")
+attack_animation_name = "bite"
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1147567932]
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130177402]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"run"
-frame = 2
-frame_progress = 0.7362042
+animation = &"hurt"
+frame_progress = 0.4513673
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=630664741]
 

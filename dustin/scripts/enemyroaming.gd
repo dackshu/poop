@@ -7,24 +7,31 @@ extends CharacterBody2D
 @export var roam_distance: float = 100.0
 @export var min_idle_time: float = 1.0
 @export var max_idle_time: float = 3.0
+@export var attack_time: float = 5.0  
 
 @export var idle_animation_name: String = "idle"
 @export var run_animation_name: String = "run"
+@export var attack_animation_name: String = "attack"
 
 # --- STATE MACHINE ---
-enum State { IDLE, ROAM, CHASE }
+enum State { IDLE, ROAM, CHASE, ATTACK }
 var current_state: State = State.IDLE
 
 var home_x: float
 var target_x: float
 var player_target: Node2D = null
 
+# Attack Tracking Flags
+var is_player_in_attack_range: bool = false
+var can_attack: bool = true
+
 # --- NODE REFERENCES ---
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var idle_timer: Timer = $IdleTimer
 @onready var detection_area: Area2D = $DetectionArea
 @onready var attack_area: Area2D = $attack
-
+@onready var attack_timer: Timer = $AttackTimer
+ 
 
 func _ready() -> void:
 	home_x = global_position.x
@@ -34,9 +41,12 @@ func _ready() -> void:
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
 	
-	# Connect Attack Area signal
+	# Connect Attack Area & Cooldown Timer signals
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
+	attack_area.body_exited.connect(_on_attack_area_body_exited)
+	attack_timer.timeout.connect(_on_attack_timer_timeout)	
 	
+	animated_sprite.animation_finished.connect(_on_animation_finished)
 	start_idle()
 
 func _physics_process(delta: float) -> void:
@@ -72,6 +82,9 @@ func _physics_process(delta: float) -> void:
 				start_idle()
 
 		State.IDLE:
+			velocity.x = move_toward(velocity.x, 0, move_speed)
+			
+		State.ATTACK:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 
 	move_and_slide()
@@ -110,9 +123,35 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body == player_target:
 		start_idle()
 
+# --- ATTACK REPEATING LOOP ---
+
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") or body.name == "fakeplayer":
-		print(name + "attack")
+		is_player_in_attack_range = true
+		try_attack()
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player") or body.name == "fakeplayer":
+		is_player_in_attack_range = false
+
+func try_attack() -> void:
+	# Only execute if player is still in range AND cooldown has passed
+	if is_player_in_attack_range and can_attack:
+		can_attack = false
+		current_state = State.ATTACK
+		print(name + " attack")
+		
+		
+		play_animation(attack_animation_name)
+		
+		# Start cooldown timer using exported attack_time
+		attack_timer.start(attack_time)
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true
+	# If player is still standing inside the attack zone, attack again!
+	if is_player_in_attack_range:
+		try_attack()
 
 # --- ANIMATION HELPER ---
 
@@ -121,3 +160,10 @@ func play_animation(anim_name: String) -> void:
 		if animated_sprite.sprite_frames.has_animation(anim_name):
 			if animated_sprite.animation != anim_name or not animated_sprite.is_playing():
 				animated_sprite.play(anim_name)
+
+
+func _on_animation_finished() -> void:
+	if current_state == State.ATTACK:
+		current_state == State.CHASE
+	else:
+		start_idle()

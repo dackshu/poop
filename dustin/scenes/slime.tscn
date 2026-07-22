@@ -282,7 +282,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -381,7 +381,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -411,19 +411,23 @@ animations = [{
 radius = 11.045361
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhepj"]
-radius = 72.249565
+radius = 107.563934
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr3pb"]
 radius = 17.0
 
 [node name="slime" type="CharacterBody2D" unique_id=1315194489]
 script = ExtResource("1_gq6ux")
+move_speed = 30.0
+chase_speed = 60.0
+run_animation_name = "walk"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1801048092]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"hurt"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.30773315
+frame = 1
+frame_progress = 0.8049741
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976322791]
 position = Vector2(-1, 0)
@@ -440,3 +444,6 @@ shape = SubResource("CircleShape2D_rhepj")
 
 [node name="slimehit" type="CollisionShape2D" parent="attack" unique_id=251761584]
 shape = SubResource("CircleShape2D_cr3pb")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=856617805]
+one_shot = true
