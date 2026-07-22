@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bmfc5aalp6wo2"]
 
+[ext_resource type="Script" uid="uid://dveiqpou6g2xm" path="res://dustin/scripts/bat.gd" id="1_qgeip"]
 [ext_resource type="Texture2D" uid="uid://cajwhjp0rvmbd" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Bat/attack.png" id="1_x06n7"]
 [ext_resource type="Texture2D" uid="uid://ca8scx6w7d6nj" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Bat/death.png" id="2_qgeip"]
 [ext_resource type="Texture2D" uid="uid://bn8my42vvpnpj" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Bat/fall.png" id="3_f6ojl"]
@@ -299,9 +300,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="bat" type="Node2D" unique_id=1723915787]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ojl"]
+size = Vector2(49, 15)
+
+[node name="bat" type="CharacterBody2D" unique_id=2018259383]
+script = ExtResource("1_qgeip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1946116327]
 sprite_frames = SubResource("SpriteFrames_m8bkc")
 animation = &"hurt"
 frame_progress = 0.784721
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1390547541]
+position = Vector2(5.5, 8.5)
+shape = SubResource("RectangleShape2D_f6ojl")

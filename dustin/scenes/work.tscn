@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://kib7i2vgum1b"]
+
+[ext_resource type="PackedScene" uid="uid://bmfc5aalp6wo2" path="res://dustin/scenes/bat.tscn" id="1_0jcyu"]
+[ext_resource type="PackedScene" uid="uid://dfdtwh8yq0u3f" path="res://dustin/scenes/fakeplayer.tscn" id="2_7xtea"]
+[ext_resource type="PackedScene" uid="uid://b8q00l8olsmk4" path="res://dustin/scenes/base_plate.tscn" id="3_7xtea"]
+
+[node name="game" type="Node2D" unique_id=1723915787]
+
+[node name="bat" parent="." unique_id=1809149168 instance=ExtResource("1_0jcyu")]
+position = Vector2(17, -6)
+
+[node name="fakeplayer" parent="." unique_id=30865539 instance=ExtResource("2_7xtea")]
+position = Vector2(123, 3)
+
+[node name="Camera2D" type="Camera2D" parent="fakeplayer" unique_id=1406204083]
+position = Vector2(-123, -3)
+position_smoothing_enabled = true
+
+[node name="base plate" parent="." unique_id=510034451 instance=ExtResource("3_7xtea")]
+position = Vector2(78, -14)
+
+[node name="killzone" type="Area2D" parent="." unique_id=1526170718]

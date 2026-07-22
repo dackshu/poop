@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dfdtwh8yq0u3f"]
+
+[ext_resource type="Texture2D" uid="uid://bmmtinksqdoq3" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Slime/hurt.png" id="1_f0dt7"]
+[ext_resource type="Script" uid="uid://snho0ghlw720" path="res://dustin/scripts/fakeplayer.gd" id="1_nitkl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nitkl"]
+atlas = ExtResource("1_f0dt7")
+region = Rect2(0, 0, 156, 156)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvyck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nitkl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvyck"]
+radius = 8.0
+height = 20.0
+
+[node name="fakeplayer" type="CharacterBody2D" unique_id=30865539]
+script = ExtResource("1_nitkl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=541828158]
+sprite_frames = SubResource("SpriteFrames_yvyck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1981352261]
+position = Vector2(-5, -1)
+shape = SubResource("CapsuleShape2D_yvyck")
