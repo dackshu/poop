@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite.play("jump")
 	
+	# Player death
+	
+	
 	
 	# Apply movement
 	if direction:
