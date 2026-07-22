@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drbdfs02k1baj"]
 
-[ext_resource type="Script" uid="uid://bie37g2jiif21" path="res://cayden/player/player scripts/player.gd" id="1_krd3x"]
+[ext_resource type="Script" uid="uid://bie37g2jiif21" path="res://cayden/player.gd" id="1_ngx4p"]
 [ext_resource type="Texture2D" uid="uid://bdxqjg3pcvids" path="res://cayden/assets/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="2_18fh6"]
 [ext_resource type="Texture2D" uid="uid://hdpyskatqinm" path="res://cayden/assets/Colour1/Outline/120x80_PNGSheets/_Attack.png" id="2_ngx4p"]
 [ext_resource type="Texture2D" uid="uid://ces245rixieoy" path="res://cayden/assets/Colour1/Outline/120x80_PNGSheets/_Death.png" id="3_7j8tk"]
@@ -362,10 +362,10 @@ radius = 7.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" unique_id=837909742]
-script = ExtResource("1_krd3x")
+script = ExtResource("1_ngx4p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086361758]
-position = Vector2(6, -16)
+position = Vector2(-6, 3)
 sprite_frames = SubResource("SpriteFrames_pnq1p")
 animation = &"attack_slash1"
 autoplay = "idle"
@@ -373,5 +373,5 @@ frame = 2
 frame_progress = 0.88748884
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608305410]
-position = Vector2(1, 3)
+position = Vector2(3, 24)
 shape = SubResource("CapsuleShape2D_ptg02")
