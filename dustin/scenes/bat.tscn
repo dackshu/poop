@@ -301,7 +301,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ojl"]
-size = Vector2(49, 15)
+size = Vector2(49, 37)
 
 [node name="bat" type="CharacterBody2D" unique_id=2018259383]
 script = ExtResource("1_qgeip")
@@ -312,5 +312,8 @@ animation = &"hurt"
 frame_progress = 0.784721
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1390547541]
-position = Vector2(5.5, 8.5)
+position = Vector2(5.5, 19.5)
 shape = SubResource("RectangleShape2D_f6ojl")
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=1592968913]
+one_shot = true
