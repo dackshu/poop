@@ -10,6 +10,7 @@ distance = 104.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=595682145]
 position = Vector2(-8, -82)
 zoom = Vector2(3, 3)
+limit_bottom = 120
 position_smoothing_enabled = true
 
 [node name="Player" parent="." unique_id=837909742 instance=ExtResource("1_qychj")]
