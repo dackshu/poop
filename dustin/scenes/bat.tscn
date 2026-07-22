@@ -192,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x8q4")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 9.0
 }, {
@@ -320,7 +320,8 @@ idle_animation_name = "fly"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1946116327]
 sprite_frames = SubResource("SpriteFrames_m8bkc")
 animation = &"attack"
-frame_progress = 0.9302176
+frame = 10
+frame_progress = 1.0
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=995615169]
 one_shot = true

@@ -328,7 +328,7 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130177402]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
 animation = &"hurt"
-frame_progress = 0.4513673
+frame_progress = 0.547163
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=630664741]
 
