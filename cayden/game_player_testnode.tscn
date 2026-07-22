@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ckpkkbcg66e4d"]
+
+[ext_resource type="PackedScene" uid="uid://drbdfs02k1baj" path="res://cayden/player.tscn" id="1_qychj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qychj"]
+
+[node name="game-player-testnode" type="Node2D" unique_id=1936578384]
+
+[node name="Player" parent="." unique_id=837909742 instance=ExtResource("1_qychj")]
+position = Vector2(-2, -102)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=595682145]
+position = Vector2(-2, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1956389881]
+position = Vector2(5, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1522284026]
+position = Vector2(-1, 1)
+shape = SubResource("WorldBoundaryShape2D_qychj")
