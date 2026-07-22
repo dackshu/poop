@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://brciaeiql5x3l"]
 
+[ext_resource type="Script" uid="uid://c02gdgn5v8f6y" path="res://dustin/scripts/slime.gd" id="1_gq6ux"]
 [ext_resource type="Texture2D" uid="uid://cgl05te42nvx6" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Slime/attack.png" id="1_rfnmj"]
 [ext_resource type="Texture2D" uid="uid://cvqrmxkluqfqv" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Slime/death.png" id="2_gq6ux"]
 [ext_resource type="Texture2D" uid="uid://bmmtinksqdoq3" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Slime/hurt.png" id="3_61v1f"]
 [ext_resource type="Texture2D" uid="uid://dmqrp3s7oph31" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Slime/idle.png" id="4_bqw28"]
 [ext_resource type="Texture2D" uid="uid://bycu2o2nc7ppa" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Slime/walk.png" id="5_l333o"]
+[ext_resource type="PackedScene" uid="uid://w4bdgl2tydr7" path="res://dustin/scenes/detection.tscn" id="7_61v1f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ip6va"]
 atlas = ExtResource("1_rfnmj")
@@ -405,9 +407,36 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="slime" type="Node2D" unique_id=835447566]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ueu5a"]
+radius = 11.045361
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhepj"]
+radius = 72.249565
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr3pb"]
+radius = 17.0
+
+[node name="slime" type="CharacterBody2D" unique_id=1315194489]
+script = ExtResource("1_gq6ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1801048092]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"walk"
-frame_progress = 0.6246977
+animation = &"hurt"
+autoplay = "idle"
+frame_progress = 0.30773315
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976322791]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_ueu5a")
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=40631587]
+
+[node name="DetectionArea" parent="." unique_id=1761454265 instance=ExtResource("7_61v1f")]
+
+[node name="slimeradi" type="CollisionShape2D" parent="DetectionArea" unique_id=820140623]
+shape = SubResource("CircleShape2D_rhepj")
+
+[node name="attack" type="Area2D" parent="." unique_id=1870459987]
+
+[node name="slimehit" type="CollisionShape2D" parent="attack" unique_id=251761584]
+shape = SubResource("CircleShape2D_cr3pb")

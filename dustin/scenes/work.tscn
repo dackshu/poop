@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://kib7i2vgum1b"]
 
 [ext_resource type="PackedScene" uid="uid://bmfc5aalp6wo2" path="res://dustin/scenes/bat.tscn" id="1_0jcyu"]
+[ext_resource type="PackedScene" uid="uid://ca1qhp4ewc48a" path="res://dustin/scenes/rat.tscn" id="1_enowu"]
 [ext_resource type="PackedScene" uid="uid://dfdtwh8yq0u3f" path="res://dustin/scenes/fakeplayer.tscn" id="2_7xtea"]
+[ext_resource type="PackedScene" uid="uid://brciaeiql5x3l" path="res://dustin/scenes/slime.tscn" id="2_wg4ww"]
 [ext_resource type="PackedScene" uid="uid://b8q00l8olsmk4" path="res://dustin/scenes/base_plate.tscn" id="3_7xtea"]
+[ext_resource type="PackedScene" uid="uid://w4bdgl2tydr7" path="res://dustin/scenes/detection.tscn" id="6_wg4ww"]
 
 [node name="game" type="Node2D" unique_id=1723915787]
 
+[node name="rat" parent="." unique_id=834667787 instance=ExtResource("1_enowu")]
+position = Vector2(-207, -54)
+idle_animation_name = ""
+
+[node name="slime" parent="." unique_id=1315194489 instance=ExtResource("2_wg4ww")]
+position = Vector2(-123, -39)
+idle_animation_name = ""
+
 [node name="bat" parent="." unique_id=1809149168 instance=ExtResource("1_0jcyu")]
-position = Vector2(-170, -15)
+position = Vector2(331, 4)
 
 [node name="fakeplayer" parent="." unique_id=30865539 instance=ExtResource("2_7xtea")]
 position = Vector2(123, 3)
@@ -20,3 +31,5 @@ position_smoothing_enabled = true
 position = Vector2(78, -14)
 
 [node name="killzone" type="Area2D" parent="." unique_id=1526170718]
+
+[node name="detection" parent="." unique_id=1761454265 instance=ExtResource("6_wg4ww")]

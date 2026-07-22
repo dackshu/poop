@@ -526,10 +526,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="mimic" type="Node2D" unique_id=459333651]
+[node name="mimic" type="CharacterBody2D" unique_id=733728945]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2081003891]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"walk"
-frame = 4
-frame_progress = 0.9287825
+animation = &"idle_closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=944700655]

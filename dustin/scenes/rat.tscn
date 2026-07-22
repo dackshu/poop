@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://ca1qhp4ewc48a"]
 
 [ext_resource type="Texture2D" uid="uid://doy8g1x1mm8u5" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Rat/attack_bite.png" id="1_4yjdf"]
+[ext_resource type="Script" uid="uid://ce37jy51w7sbe" path="res://dustin/scripts/rat.gd" id="1_v1adf"]
 [ext_resource type="Texture2D" uid="uid://qu3bepc04f6y" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Rat/hurt.png" id="2_v1adf"]
 [ext_resource type="Texture2D" uid="uid://86xgdus63kvt" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Rat/idle.png" id="3_7kyp2"]
 [ext_resource type="Texture2D" uid="uid://dd88rq6agf26j" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Rat/rat-death.png" id="4_fqg5j"]
 [ext_resource type="Texture2D" uid="uid://nbaqsrpphbha" path="res://dustin/threatasset/Monsters Creatures Fantasy 2/Rat/run.png" id="5_kuxhh"]
+[ext_resource type="PackedScene" uid="uid://w4bdgl2tydr7" path="res://dustin/scenes/detection.tscn" id="8_fqg5j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsf54"]
 atlas = ExtResource("1_4yjdf")
@@ -307,10 +309,36 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="rat" type="Node2D" unique_id=847373736]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvyck"]
+size = Vector2(31, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhepj"]
+radius = 100.07997
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueu5a"]
+size = Vector2(45, 26)
+
+[node name="rat" type="CharacterBody2D" unique_id=834667787]
+script = ExtResource("1_v1adf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130177402]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"run"
-frame = 5
-frame_progress = 0.32078776
+animation = &"idle"
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=630664741]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1793418624]
+visible = false
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_yvyck")
+
+[node name="DetectionArea" parent="." unique_id=1761454265 instance=ExtResource("8_fqg5j")]
+
+[node name="ratradi" type="CollisionShape2D" parent="DetectionArea" unique_id=1942295501]
+shape = SubResource("CircleShape2D_rhepj")
+
+[node name="attack" type="Area2D" parent="." unique_id=150110731]
+
+[node name="rathit" type="CollisionShape2D" parent="attack" unique_id=985133201]
+position = Vector2(2.5, -3)
+shape = SubResource("RectangleShape2D_ueu5a")

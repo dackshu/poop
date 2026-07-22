@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://w4bdgl2tydr7"]
+
+[node name="detection" type="Area2D" unique_id=1761454265]

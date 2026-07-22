@@ -306,15 +306,15 @@ size = Vector2(49, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w36p"]
 radius = 166.19266
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wg4ww"]
-radius = 29.017237
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvniw"]
-size = Vector2(48, 20)
-
 [node name="bat" type="CharacterBody2D" unique_id=2018259383]
 script = ExtResource("1_qgeip")
+move_speed = null
+chase_speed = null
+roam_distance = null
+min_idle_time = null
+max_idle_time = null
 idle_animation_name = "fly"
+run_animation_name = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1946116327]
 sprite_frames = SubResource("SpriteFrames_m8bkc")
@@ -324,23 +324,10 @@ animation = &"fly"
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1390547541]
-position = Vector2(2, 39)
+position = Vector2(5.5, 8.5)
 shape = SubResource("RectangleShape2D_f6ojl")
 
-[node name="DetectionArea" type="Area2D" parent="." unique_id=1298072507]
+[node name="detection" type="Area2D" parent="." unique_id=1298072507]
 
-[node name="batradi" type="CollisionShape2D" parent="DetectionArea" unique_id=1554761803]
+[node name="batradi" type="CollisionShape2D" parent="detection" unique_id=1554761803]
 shape = SubResource("CircleShape2D_8w36p")
-
-[node name="attack" type="Area2D" parent="." unique_id=1475150760]
-
-[node name="bathit" type="CollisionShape2D" parent="attack" unique_id=1796973662]
-position = Vector2(1, 8)
-shape = SubResource("CircleShape2D_wg4ww")
-
-[node name="hitbox" type="Area2D" parent="." unique_id=1789219517]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1820704603]
-position = Vector2(4, 3)
-shape = SubResource("RectangleShape2D_jvniw")
-disabled = true
