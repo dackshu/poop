@@ -323,7 +323,9 @@ script = ExtResource("1_v1adf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130177402]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"idle"
+animation = &"run"
+frame = 2
+frame_progress = 0.7362042
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=630664741]
 
