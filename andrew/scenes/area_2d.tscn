@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://btvlfy1okaoke"]
 
-[ext_resource type="Script" uid="uid://bsmjoopxnjxne" path="res://area_2d.gd" id="1_gf172"]
+[ext_resource type="Script" uid="uid://p8nqtsigndf7" path="res://andrew/scenes/kllzone.tscn.gd" id="1_hwxrd"]
 
 [node name="kllzone" type="Area2D" unique_id=751487681]
 collision_mask = 2
-script = ExtResource("1_gf172")
+script = ExtResource("1_hwxrd")
 
 [node name="Timer" type="Timer" parent="." unique_id=1541983919]
 wait_time = 0.6
