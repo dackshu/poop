@@ -37,8 +37,6 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("jump")
 
 # 
-	if Input.is_action_just_pressed("attack"):
-		animated_sprite.play("attack_slash1")
 	
 	# Apply movement
 	if direction:
