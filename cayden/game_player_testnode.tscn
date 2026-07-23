@@ -8,14 +8,14 @@ distance = 104.0
 
 [node name="game-player-testnode" type="Node2D" unique_id=1936578384]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=595682145]
-position = Vector2(-8, -82)
+[node name="Player" parent="." unique_id=837909742 instance=ExtResource("1_qychj")]
+position = Vector2(-20, -89)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=595682145]
+position = Vector2(12, 7)
 zoom = Vector2(3, 3)
 limit_bottom = 120
 position_smoothing_enabled = true
-
-[node name="Player" parent="." unique_id=837909742 instance=ExtResource("1_qychj")]
-position = Vector2(-20, -89)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1956389881]
 position = Vector2(2, 85)

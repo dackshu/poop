@@ -425,19 +425,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptg02"]
-radius = 7.0
-height = 20.0
+radius = 5.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=837909742]
 script = ExtResource("1_ngx4p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086361758]
-position = Vector2(-6, 3)
+position = Vector2(3, -18)
 sprite_frames = SubResource("SpriteFrames_pnq1p")
-animation = &"run"
+animation = &"attack_slash1"
 autoplay = "idle"
-frame_progress = 0.7485932
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608305410]
-position = Vector2(3, 24)
+position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_ptg02")
