@@ -326,6 +326,26 @@ sources/0 = SubResource("TileSetAtlasSource_qylmr")
 a = Vector2(-130, 309)
 b = Vector2(122, 307)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3os8p"]
+a = Vector2(618, -47)
+b = Vector2(710, -47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wq0ip"]
+a = Vector2(667, -127)
+b = Vector2(727, -128)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ignkf"]
+a = Vector2(777, -48)
+b = Vector2(868, -45)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1x3h6"]
+a = Vector2(935, -48)
+b = Vector2(1107, -47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1bffj"]
+a = Vector2(1001, -142)
+b = Vector2(1126, -142)
+
 [node name="LevelOne" type="Node2D" unique_id=589759887]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=550006097]
@@ -349,3 +369,38 @@ script = null
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone2" unique_id=830454425]
 position = Vector2(334, 44)
 shape = SubResource("SegmentShape2D_037le")
+
+[node name="kllzone3" parent="." unique_id=304259804 instance=ExtResource("2_qvg0y")]
+position = Vector2(248, -59)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone3" unique_id=1433053213]
+shape = SubResource("SegmentShape2D_3os8p")
+
+[node name="kllzone4" parent="." unique_id=325364937 instance=ExtResource("2_qvg0y")]
+position = Vector2(248, -59)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone4" unique_id=772376468]
+shape = SubResource("SegmentShape2D_wq0ip")
+
+[node name="kllzone5" parent="." unique_id=1680454250 instance=ExtResource("2_qvg0y")]
+position = Vector2(248, -59)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone5" unique_id=503971261]
+shape = SubResource("SegmentShape2D_ignkf")
+
+[node name="kllzone6" parent="." unique_id=742506273 instance=ExtResource("2_qvg0y")]
+position = Vector2(248, -59)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone6" unique_id=899296340]
+shape = SubResource("SegmentShape2D_1x3h6")
+
+[node name="kllzone7" parent="." unique_id=153434929 instance=ExtResource("2_qvg0y")]
+position = Vector2(248, -59)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone7" unique_id=91118647]
+shape = SubResource("SegmentShape2D_1bffj")
