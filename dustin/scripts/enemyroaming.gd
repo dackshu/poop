@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var min_idle_time: float = 1.0
 @export var max_idle_time: float = 3.0
 @export var attack_time: float = 2.0  # Attack cooldown duration
+@export var delay: float = 1.0
 
 @export var idle_animation_name: String = "idle"
 @export var run_animation_name: String = "run"
@@ -31,6 +32,7 @@ var can_attack: bool = true
 @onready var detection_area: Area2D = $DetectionArea
 @onready var attack_area: Area2D = $attack
 @onready var attack_timer: Timer = $AttackTimer
+@onready var attack_delay: Timer = $RegularTimer
 
 func _ready() -> void:
 	home_x = global_position.x
@@ -39,6 +41,8 @@ func _ready() -> void:
 	idle_timer.timeout.connect(_on_idle_timer_timeout)
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
+	attack_delay.timeout.connect(realattack)
+	
 	
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	attack_area.body_exited.connect(_on_attack_area_body_exited)
@@ -152,11 +156,16 @@ func try_attack() -> void:
 				animated_sprite.flip_h = direction < 0
 		
 		# Print name and trigger animation simultaneously
-		print(name + " attack")
+		attack_delay.start(delay)
+		
 		play_animation(attack_animation_name)
 		
 		# Start cooldown timer
 		attack_timer.start(attack_time)
+
+func realattack() -> void:
+	print(name + " attack")
+
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true

@@ -320,6 +320,7 @@ size = Vector2(45, 26)
 
 [node name="rat" type="CharacterBody2D" unique_id=834667787]
 script = ExtResource("1_v1adf")
+delay = 0.1
 attack_animation_name = "bite"
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1147567932]
@@ -347,3 +348,6 @@ shape = SubResource("CircleShape2D_rhepj")
 [node name="rathit" type="CollisionShape2D" parent="attack" unique_id=985133201]
 position = Vector2(2.5, -3)
 shape = SubResource("RectangleShape2D_ueu5a")
+
+[node name="RegularTimer" type="Timer" parent="." unique_id=2057303808]
+one_shot = true

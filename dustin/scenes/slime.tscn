@@ -447,3 +447,6 @@ shape = SubResource("CircleShape2D_cr3pb")
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=856617805]
 one_shot = true
+
+[node name="RegularTimer" type="Timer" parent="." unique_id=1864823962]
+one_shot = true

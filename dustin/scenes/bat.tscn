@@ -350,3 +350,6 @@ disabled = true
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=554642916]
 one_shot = true
+
+[node name="RegularTimer" type="Timer" parent="." unique_id=2082999107]
+one_shot = true
