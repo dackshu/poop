@@ -35,7 +35,10 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-	
+
+# 
+	if Input.is_action_just_pressed("attack"):
+		animated_sprite.play("attack_slash1")
 	
 	# Apply movement
 	if direction:
@@ -44,3 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

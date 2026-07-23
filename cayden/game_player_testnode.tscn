@@ -25,5 +25,5 @@ position = Vector2(1, 19)
 shape = SubResource("WorldBoundaryShape2D_qychj")
 
 [node name="Killzone" parent="." unique_id=1440600309 instance=ExtResource("2_gy2l7")]
-position = Vector2(110, -99)
-rotation = -1.5896939
+position = Vector2(165, -28.999992)
+rotation = -2.165055
