@@ -331,17 +331,20 @@ position = Vector2(2, 39)
 shape = SubResource("RectangleShape2D_f6ojl")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1298072507]
+visible = false
 
 [node name="batradi" type="CollisionShape2D" parent="DetectionArea" unique_id=1554761803]
 shape = SubResource("CircleShape2D_8w36p")
 
 [node name="attack" type="Area2D" parent="." unique_id=1475150760]
+visible = false
 
 [node name="bathit" type="CollisionShape2D" parent="attack" unique_id=1796973662]
 position = Vector2(1, 8)
 shape = SubResource("CapsuleShape2D_f6ojl")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1789219517]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1820704603]
 position = Vector2(4, 3)

@@ -320,7 +320,7 @@ size = Vector2(45, 26)
 
 [node name="rat" type="CharacterBody2D" unique_id=834667787]
 script = ExtResource("1_v1adf")
-delay = 0.1
+delay = 0.02
 attack_animation_name = "bite"
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1147567932]
