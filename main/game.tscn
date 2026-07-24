@@ -15,7 +15,7 @@ position = Vector2(-87, 163)
 position = Vector2(-321, 165)
 
 [node name="Camera2D" type="Camera2D" parent="fakeplayer" unique_id=2140913099]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="bat" parent="." unique_id=2018259383 instance=ExtResource("3_vfw6y")]
