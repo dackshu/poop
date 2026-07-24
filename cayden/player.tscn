@@ -454,5 +454,5 @@ position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_ptg02")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=266751612]
-position = Vector2(-25, 14)
+position = Vector2(-25, 18)
 shape = SubResource("SegmentShape2D_fvs6p")
