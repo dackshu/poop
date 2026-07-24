@@ -437,7 +437,7 @@ radius = 5.0
 height = 16.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fvs6p"]
-a = Vector2(36, 0)
+a = Vector2(30, 0)
 b = Vector2(18, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=837909742]
@@ -450,9 +450,9 @@ animation = &"run"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608305410]
-position = Vector2(11, 3)
+position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_ptg02")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=266751612]
-position = Vector2(-18, 21)
+position = Vector2(-25, 14)
 shape = SubResource("SegmentShape2D_fvs6p")
