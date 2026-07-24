@@ -399,7 +399,7 @@ script = null
 shape = SubResource("SegmentShape2D_1x3h6")
 
 [node name="kllzone7" parent="." unique_id=153434929 instance=ExtResource("2_qvg0y")]
-position = Vector2(248, -59)
+position = Vector2(248, -58)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone7" unique_id=91118647]
