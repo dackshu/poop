@@ -152,9 +152,9 @@ texture = ExtResource("1_5ujwg")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:1/0 = 0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.6978817, -2.5180216, 1.978445, -3.057598, 2.5180225, -8, 8, -8, 8, 8, -8, 8, -8, 2.8777409, -2.877739, 2.1583061)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.35971832, 0.17985916, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.7985878, -8, -1.4388695, -2.6978807, 2.5180225, -2.6978807, 3.2374573, 2.3381634, 8, 2.5180225, 8, 8, -8, 8, -8, 2.8777409, -8, 8)
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -0.5395756, -0.5395756, 8, 8, -8, 8)
 8:1/0 = 0
 9:1/0 = 0
 10:1/0 = 0
@@ -322,29 +322,23 @@ texture = ExtResource("1_5ujwg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qylmr")
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_037le"]
-a = Vector2(-130, 309)
-b = Vector2(122, 307)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o5th"]
+size = Vector2(257, 14)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_3os8p"]
-a = Vector2(618, -47)
-b = Vector2(710, -47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhff0"]
+size = Vector2(99, 9)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_wq0ip"]
-a = Vector2(667, -127)
-b = Vector2(727, -128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cjcs"]
+size = Vector2(64, 9)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ignkf"]
-a = Vector2(777, -48)
-b = Vector2(868, -45)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11l5h"]
+size = Vector2(100, 9)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1x3h6"]
-a = Vector2(935, -48)
-b = Vector2(1107, -47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icwyb"]
+size = Vector2(174, 10)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1bffj"]
-a = Vector2(1001, -142)
-b = Vector2(1126, -142)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lhjf"]
+size = Vector2(132, 9)
 
 [node name="LevelOne" type="Node2D" unique_id=589759887]
 
@@ -367,40 +361,45 @@ position = Vector2(248, -59)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone2" unique_id=830454425]
-position = Vector2(334, 44)
-shape = SubResource("SegmentShape2D_037le")
+position = Vector2(328.5, 354)
+shape = SubResource("RectangleShape2D_8o5th")
 
 [node name="kllzone3" parent="." unique_id=304259804 instance=ExtResource("2_qvg0y")]
 position = Vector2(248, -59)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone3" unique_id=1433053213]
-shape = SubResource("SegmentShape2D_3os8p")
+position = Vector2(662.5, -46.5)
+shape = SubResource("RectangleShape2D_rhff0")
 
 [node name="kllzone4" parent="." unique_id=325364937 instance=ExtResource("2_qvg0y")]
 position = Vector2(248, -59)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone4" unique_id=772376468]
-shape = SubResource("SegmentShape2D_wq0ip")
+position = Vector2(696, -130.5)
+shape = SubResource("RectangleShape2D_5cjcs")
 
 [node name="kllzone5" parent="." unique_id=1680454250 instance=ExtResource("2_qvg0y")]
 position = Vector2(248, -59)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone5" unique_id=503971261]
-shape = SubResource("SegmentShape2D_ignkf")
+position = Vector2(822, -44.5)
+shape = SubResource("RectangleShape2D_11l5h")
 
 [node name="kllzone6" parent="." unique_id=742506273 instance=ExtResource("2_qvg0y")]
 position = Vector2(248, -59)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone6" unique_id=899296340]
-shape = SubResource("SegmentShape2D_1x3h6")
+position = Vector2(1023, -43)
+shape = SubResource("RectangleShape2D_icwyb")
 
 [node name="kllzone7" parent="." unique_id=153434929 instance=ExtResource("2_qvg0y")]
 position = Vector2(248, -58)
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone7" unique_id=91118647]
-shape = SubResource("SegmentShape2D_1bffj")
+position = Vector2(1063, -147.5)
+shape = SubResource("RectangleShape2D_1lhjf")
