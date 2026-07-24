@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://ojpkysgyppgm"]
 
+[ext_resource type="PackedScene" uid="uid://dn0uviuuovhmu" path="res://andrew/level one.tscn" id="1_2fwfh"]
+[ext_resource type="PackedScene" uid="uid://drbdfs02k1baj" path="res://cayden/player.tscn" id="2_ph3h8"]
+[ext_resource type="PackedScene" uid="uid://bmfc5aalp6wo2" path="res://dustin/scenes/bat.tscn" id="3_vfw6y"]
+[ext_resource type="PackedScene" uid="uid://brciaeiql5x3l" path="res://dustin/scenes/slime.tscn" id="4_3qcir"]
+[ext_resource type="PackedScene" uid="uid://ca1qhp4ewc48a" path="res://dustin/scenes/rat.tscn" id="5_jc0vi"]
+
 [node name="Game" type="Node2D" unique_id=1854314877]
+
+[node name="LevelOne" parent="." unique_id=589759887 instance=ExtResource("1_2fwfh")]
+position = Vector2(-87, 163)
+
+[node name="fakeplayer" parent="." unique_id=837909742 instance=ExtResource("2_ph3h8")]
+position = Vector2(-321, 165)
+
+[node name="Camera2D" type="Camera2D" parent="fakeplayer" unique_id=2140913099]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="bat" parent="." unique_id=2018259383 instance=ExtResource("3_vfw6y")]
+position = Vector2(-142, 107)
+
+[node name="slime" parent="." unique_id=1315194489 instance=ExtResource("4_3qcir")]
+position = Vector2(33, 134)
+
+[node name="rat" parent="." unique_id=834667787 instance=ExtResource("5_jc0vi")]
+position = Vector2(244, 155)

@@ -360,6 +360,7 @@ tile_set = SubResource("TileSet_037le")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1221070335]
 position = Vector2(-11, 2)
+enabled = false
 zoom = Vector2(2, 2)
 
 [node name="kllzone2" parent="." unique_id=751487681 instance=ExtResource("2_qvg0y")]
