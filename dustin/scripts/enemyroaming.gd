@@ -36,6 +36,7 @@ var can_attack: bool = true
 @onready var attack_area: Area2D = $attack
 @onready var attack_timer: Timer = $AttackTimer
 @onready var attack_delay: Timer = $RegularTimer
+@onready var healthbar: ProgressBar = $healthUI
 @onready var health = maxHealth #sets health equal to maxhealth each time
 
 func _ready() -> void:
@@ -54,6 +55,9 @@ func _ready() -> void:
 	
 	# Connect sprite animation finished signal
 	animated_sprite.animation_finished.connect(_on_animation_finished)
+	
+	healthbar.max_value = maxHealth
+	healthbar.value = health
 	
 	start_idle()
 
@@ -169,7 +173,7 @@ func try_attack() -> void:
 
 func realattack() -> void:
 	if is_player_in_attack_range and is_instance_valid(player_target):
-		if player_target.has_variable(take_damage):
+		if player_target.has_method("take_damage"):
 			player_target.take_damage(damage)
 		
 
@@ -183,6 +187,9 @@ func _on_attack_timer_timeout() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	if healthbar:
+		healthbar.value = health
+	
 	if health <= 0:
 		queue_free()
 	

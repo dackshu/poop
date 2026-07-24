@@ -318,6 +318,13 @@ radius = 105.01904
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ueu5a"]
 size = Vector2(45, 26)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kyp2"]
+bg_color = Color(0, 0, 0, 0.76862746)
+corner_radius_top_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqg5j"]
+bg_color = Color(0.99215686, 0, 0.25490198, 0.78039217)
+
 [node name="rat" type="CharacterBody2D" unique_id=834667787]
 script = ExtResource("1_v1adf")
 delay = 0.02
@@ -351,3 +358,13 @@ shape = SubResource("RectangleShape2D_ueu5a")
 
 [node name="RegularTimer" type="Timer" parent="." unique_id=2057303808]
 one_shot = true
+
+[node name="healthUI" type="ProgressBar" parent="." unique_id=350318835]
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 37.0
+offset_bottom = -23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7kyp2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fqg5j")
+value = 50.0
+show_percentage = false
