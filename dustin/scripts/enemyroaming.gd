@@ -204,8 +204,29 @@ func take_damage(amount: int) -> void:
 		play_animation(hit_animation_name)
 
 func die() -> void:
+	# Call deferred or queue_free first
 	queue_free()
+	
+	# Wait for the end of the frame so queue_free completes
+	await get_tree().process_frame
+	
+	# Count how many nodes are left in the "enemies" group
+	var remaining_enemies = get_tree().get_nodes_in_group("enemies").size()
+	
+	if remaining_enemies == 0:
+		show_victory_screen()
 
+
+func show_victory_screen() -> void:
+	# Load and display the victory screen overlay
+	var victory_scene = load("res://victory_screen.tscn") # Adjust path to your file!
+	var victory_instance = victory_scene.instantiate()
+	
+	# Add to the current scene root
+	get_tree().current_scene.add_child(victory_instance)
+	
+	# Optional: Pause game background while UI is up
+	get_tree().paused = true
 
 func _on_animation_finished() -> void:
 	if current_state == State.ATTACK or current_state == State.HIT:

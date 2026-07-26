@@ -423,7 +423,7 @@ corner_radius_top_left = 7
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqw28"]
 bg_color = Color(0.99215686, 0, 0.25490198, 0.78039217)
 
-[node name="slime" type="CharacterBody2D" unique_id=1315194489]
+[node name="slime" type="CharacterBody2D" unique_id=1315194489 groups=["enemies"]]
 script = ExtResource("1_gq6ux")
 move_speed = 30.0
 chase_speed = 60.0

@@ -13,9 +13,6 @@ position = Vector2(-87, 163)
 [node name="bat" parent="." unique_id=2018259383 instance=ExtResource("3_vfw6y")]
 position = Vector2(-146, 114)
 
-[node name="slime" parent="." unique_id=1315194489 instance=ExtResource("4_3qcir")]
-position = Vector2(33, 134)
-
 [node name="fakeplayer" parent="." unique_id=837909742 instance=ExtResource("2_ph3h8")]
 position = Vector2(-226, 160)
 
@@ -26,8 +23,23 @@ position_smoothing_enabled = true
 [node name="slime2" parent="." unique_id=1519893719 instance=ExtResource("4_3qcir")]
 position = Vector2(1413, 36)
 
-[node name="slime3" parent="." unique_id=1165406381 instance=ExtResource("4_3qcir")]
-position = Vector2(1772, 48)
-
 [node name="bat2" parent="." unique_id=1515438539 instance=ExtResource("3_vfw6y")]
 position = Vector2(1689, 11)
+
+[node name="Label" type="Label" parent="." unique_id=2086342485]
+offset_left = -348.0
+offset_top = 141.0
+offset_right = -226.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 10
+text = "W, A, D to move
+L to attack
+Q to roll"
+
+[node name="Label2" type="Label" parent="." unique_id=1383926500]
+offset_left = -348.0
+offset_top = 107.0
+offset_right = -222.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 9
+text = "Kill all enemies to win"

@@ -320,7 +320,7 @@ corner_radius_top_left = 7
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jffu4"]
 bg_color = Color(0.99215686, 0, 0.25490198, 0.78039217)
 
-[node name="bat" type="CharacterBody2D" unique_id=2018259383]
+[node name="bat" type="CharacterBody2D" unique_id=2018259383 groups=["enemies"]]
 script = ExtResource("1_qgeip")
 idle_animation_name = "fly"
 hit_animation_name = "hurt"
