@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -330.0
+const SPEED = 80.0
+const ROLL_SPEED = 120.0
+const JUMP_VELOCITY = -260.0
 
 #attack & roll variables
 var is_attacking: bool = false
 var is_rolling: bool = false
 var is_invincible: bool = false
+var facing_direction: float = 1.0
 
 # Heart Variables
 @export var max_health: int = 4 # Represents your total number of hearts
@@ -31,32 +33,67 @@ func _ready() -> void:
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# 1. Apply gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
+	# 2. Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction: -1, 0, 1
+	# 3. Handle direction input and sprite/area flipping
 	var direction := Input.get_axis("move_left", "move_right")
 	
 	if direction > 0:
-		# Facing Right
 		animated_sprite.flip_h = false
-		
-		# --- ADD THIS LINE ---
-		attack_area.scale.x = 1 
-		# ----------------------
-		
+		attack_area.scale.x = 1
+		facing_direction = 1.0
 	elif direction < 0:
-		# Facing Left
 		animated_sprite.flip_h = true
+		attack_area.scale.x = -1
+		facing_direction = -1.0
+
+	# 4. Handle attack & roll action triggers
+	if Input.is_action_just_pressed("attack") and not is_attacking and not is_rolling:
+		attack()
+	
+	if Input.is_action_just_pressed("roll") and not is_rolling and not is_attacking and is_on_floor():
+		roll()
+
+	# 5. Play animations
+	if not is_attacking and not is_rolling:
+		if is_on_floor():
+			if direction == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
+		else:
+			animated_sprite.play("jump")
+
+	# 6. Apply horizontal movement (Roll vs Attack vs Normal Walk)
+	if is_rolling:
+		# Roll uses current input direction OR last faced direction if no key is pressed
+		var roll_dir = direction if direction != 0 else facing_direction
 		
-		# --- ADD THIS LINE ---
-		attack_area.scale.x = -1 
-		# ----------------------
+		# Allow mid-roll turning if player presses opposite direction
+		if direction != 0:
+			animated_sprite.flip_h = direction < 0
+			attack_area.scale.x = direction
+			facing_direction = direction
+			
+		velocity.x = roll_dir * ROLL_SPEED
+	elif is_attacking:
+		# Decelerate slightly during attack swings
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	else:
+		# Standard walking/running movement
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	# 7. Single physics step
+	move_and_slide()
 	
 	# Handles attack input (and no attacking while rolling)
 	if Input.is_action_just_pressed("attack") and not is_attacking and not is_rolling:

@@ -365,10 +365,10 @@ one_shot = true
 one_shot = true
 
 [node name="healthUI" type="ProgressBar" parent="." unique_id=569651165]
-offset_left = -36.0
-offset_top = -31.0
-offset_right = 37.0
-offset_bottom = -23.0
+offset_left = -14.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = -24.0
 theme_override_styles/background = SubResource("StyleBoxFlat_yec5m")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jffu4")
 value = 50.0

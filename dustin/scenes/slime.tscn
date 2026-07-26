@@ -458,11 +458,11 @@ one_shot = true
 [node name="RegularTimer" type="Timer" parent="." unique_id=1864823962]
 one_shot = true
 
-[node name="healthUI" type="ProgressBar" parent="." unique_id=1751376414]
-offset_left = -36.0
-offset_top = -31.0
-offset_right = 37.0
-offset_bottom = -23.0
+[node name="healthUI" type="ProgressBar" parent="." unique_id=1331995992]
+offset_left = -17.0
+offset_top = -22.0
+offset_right = 17.0
+offset_bottom = -19.0
 theme_override_styles/background = SubResource("StyleBoxFlat_61v1f")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bqw28")
 value = 50.0

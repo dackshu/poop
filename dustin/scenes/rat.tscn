@@ -359,11 +359,11 @@ shape = SubResource("RectangleShape2D_ueu5a")
 [node name="RegularTimer" type="Timer" parent="." unique_id=2057303808]
 one_shot = true
 
-[node name="healthUI" type="ProgressBar" parent="." unique_id=350318835]
-offset_left = -36.0
-offset_top = -31.0
-offset_right = 37.0
-offset_bottom = -23.0
+[node name="healthUI" type="ProgressBar" parent="." unique_id=547913110]
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = -19.0
 theme_override_styles/background = SubResource("StyleBoxFlat_7kyp2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fqg5j")
 value = 50.0
