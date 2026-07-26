@@ -280,7 +280,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b7xea")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 10.0
 }, {
@@ -332,7 +332,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sk1tn")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -427,14 +427,14 @@ bg_color = Color(0.99215686, 0, 0.25490198, 0.78039217)
 script = ExtResource("1_gq6ux")
 move_speed = 30.0
 chase_speed = 60.0
+attack_time = 5.0
 run_animation_name = "walk"
+hit_animation_name = "hurt"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1801048092]
 sprite_frames = SubResource("SpriteFrames_ueu5a")
-animation = &"attack"
+animation = &"hurt"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.8049741
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976322791]
 position = Vector2(-1, 0)

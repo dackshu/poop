@@ -217,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nhc85")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -327,8 +327,10 @@ bg_color = Color(0.99215686, 0, 0.25490198, 0.78039217)
 
 [node name="rat" type="CharacterBody2D" unique_id=834667787]
 script = ExtResource("1_v1adf")
+attack_time = 4.0
 delay = 0.02
 attack_animation_name = "bite"
+hit_animation_name = "hurt"
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1147567932]
 one_shot = true

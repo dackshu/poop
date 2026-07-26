@@ -371,9 +371,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8t42c")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"hit",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -514,10 +514,10 @@ script = ExtResource("1_ngx4p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086361758]
 position = Vector2(3, -18)
 sprite_frames = SubResource("SpriteFrames_pnq1p")
-animation = &"roll"
+animation = &"hit"
 autoplay = "idle"
-frame = 11
-frame_progress = 1.0
+frame = 1
+frame_progress = 0.2984935
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608305410]
 position = Vector2(3, 1)
