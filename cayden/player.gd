@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and not is_attacking and not is_rolling:
 		attack()
 	
-	if Input.is_action_just_pressed("roll") and not is_rolling and not is_attacking and is_on_floor():
+	if Input.is_action_just_pressed("roll") and not is_rolling and not is_attacking:
 		roll()
 
 	# 5. Play animations
