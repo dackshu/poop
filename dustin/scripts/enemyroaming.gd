@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var attack_time: float = 2.0  # Attack cooldown duration
 @export var delay: float = 1.0
 #health and damage variables
-@export var damage: int = 50
+@export var damage: int = 1
 @export var maxHealth: int = 100
 
 @export var idle_animation_name: String = "idle"
@@ -60,6 +60,7 @@ func _ready() -> void:
 	healthbar.value = health
 	
 	start_idle()
+
 
 func _physics_process(delta: float) -> void:
 	# 1. Apply Gravity
@@ -151,6 +152,9 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player") or body.name == "fakeplayer":
 		is_player_in_attack_range = false
+		attack_delay.stop()
+		
+	
 
 func try_attack() -> void:
 	if is_player_in_attack_range and can_attack:

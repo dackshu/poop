@@ -502,11 +502,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptg02"]
-radius = 5.0
-height = 20.0
+radius = 8.0
+height = 36.0
 
-[node name="Player" type="CharacterBody2D" unique_id=837909742]
-collision_mask = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueu5a"]
+size = Vector2(16, 42)
+
+[node name="Player" type="CharacterBody2D" unique_id=837909742 groups=["player"]]
 script = ExtResource("1_ngx4p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086361758]
@@ -520,10 +522,10 @@ position = Vector2(3, 1)
 shape = SubResource("CapsuleShape2D_ptg02")
 
 [node name="HeartsContainer" type="HBoxContainer" parent="." unique_id=1561680540]
-offset_left = -116.0
-offset_top = 22.0
-offset_right = -40.0
-offset_bottom = 62.0
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 42.0
+offset_bottom = 4.0
 
 [node name="TextureRect" type="TextureRect" parent="HeartsContainer" unique_id=1785991195]
 layout_mode = 2
@@ -544,3 +546,12 @@ stretch_mode = 2
 layout_mode = 2
 texture = ExtResource("13_o8xj8")
 stretch_mode = 2
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=737197858]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1495529515]
+position = Vector2(20, -3)
+shape = SubResource("RectangleShape2D_ueu5a")
+disabled = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
