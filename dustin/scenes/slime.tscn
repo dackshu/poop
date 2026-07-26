@@ -416,6 +416,13 @@ radius = 107.563934
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr3pb"]
 radius = 17.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61v1f"]
+bg_color = Color(0, 0, 0, 0.76862746)
+corner_radius_top_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqw28"]
+bg_color = Color(0.99215686, 0, 0.25490198, 0.78039217)
+
 [node name="slime" type="CharacterBody2D" unique_id=1315194489]
 script = ExtResource("1_gq6ux")
 move_speed = 30.0
@@ -450,3 +457,13 @@ one_shot = true
 
 [node name="RegularTimer" type="Timer" parent="." unique_id=1864823962]
 one_shot = true
+
+[node name="healthUI" type="ProgressBar" parent="." unique_id=1751376414]
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 37.0
+offset_bottom = -23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_61v1f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bqw28")
+value = 50.0
+show_percentage = false
