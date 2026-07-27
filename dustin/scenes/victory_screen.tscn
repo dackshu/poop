@@ -1,35 +1,39 @@
 [gd_scene format=3 uid="uid://cgj1qu2odiwmv"]
 
-[ext_resource type="Script" uid="uid://1vflf13qdgad" path="res://dustin/scenes/control.gd" id="1_add6c"]
-[ext_resource type="Texture2D" uid="uid://bj6quq18pg3tg" path="res://bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="1_f4doe"]
+[ext_resource type="Script" uid="uid://cijewfpgypfto" path="res://dustin/scenes/victory_screen.gd" id="1_on8kh"]
+[ext_resource type="Texture2D" uid="uid://bj6quq18pg3tg" path="res://bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="2_3qxgc"]
 
-[node name="Control" type="Control" unique_id=514372488]
+[node name="victory_screen" type="Control" unique_id=514372488]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_add6c")
+script = ExtResource("1_on8kh")
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2041333598]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.045138888
+anchor_top = -0.0787037
+anchor_right = 1.1857638
+anchor_bottom = 1.6666666
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3qxgc")
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1898939375]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_f4doe")
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1898939375]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1791221446]
 layout_mode = 2
@@ -44,3 +48,8 @@ text = "You won!"
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Respawn?"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2094362136]
+position = Vector2(554, 326)
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

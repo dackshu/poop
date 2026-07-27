@@ -203,30 +203,44 @@ func take_damage(amount: int) -> void:
 		velocity.x = 0
 		play_animation(hit_animation_name)
 
+# Inside roamingEnemy.gd
 func die() -> void:
-	# Call deferred or queue_free first
-	queue_free()
+	# 1. Remove from group IMMEDIATELY before freeing the node
+	remove_from_group("enemies")
 	
-	# Wait for the end of the frame so queue_free completes
-	await get_tree().process_frame
-	
-	# Count how many nodes are left in the "enemies" group
+	# 2. Count remaining enemies in the group right now
 	var remaining_enemies = get_tree().get_nodes_in_group("enemies").size()
 	
+	# 3. Print the exact amount left to the Output console for debugging
+	print("Enemy defeated: ", name, " | Enemies remaining: ", remaining_enemies)
+	
+	# 4. If none left, trigger the victory screen
 	if remaining_enemies == 0:
+		print("All enemies defeated! Loading victory screen...")
 		show_victory_screen()
+		
+	# 5. Destroy this enemy node
+	queue_free()
 
 
 func show_victory_screen() -> void:
-	# Load and display the victory screen overlay
-	var victory_scene = load("res://victory_screen.tscn") # Adjust path to your file!
-	var victory_instance = victory_scene.instantiate()
+	# UPDATE THIS PATH to match your actual file path in FileSystem!
+	# (e.g., "res://victory_screen.tscn" or "res://dustin/scenes/victory_screen.tscn")
+	var victory_path = "res://dustin/scenes/victory_screen.tscn"
 	
-	# Add to the current scene root
-	get_tree().current_scene.add_child(victory_instance)
-	
-	# Optional: Pause game background while UI is up
-	get_tree().paused = true
+	if ResourceLoader.exists(victory_path):
+		#var victory_scene = load(victory_path)
+		#var victory_instance = victory_scene.instantiate()
+		#get_tree().current_scene.add_child(victory_instance)
+		#
+		## Optional: Pause game behind the popup
+		#get_tree().paused = true
+		get_tree().change_scene_to_file(victory_path)
+	else:
+		print_rich("[color=red]ERROR: Could not find victory screen at path: ", victory_path, "[/color]")
+
+
+
 
 func _on_animation_finished() -> void:
 	if current_state == State.ATTACK or current_state == State.HIT:

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drbdfs02k1baj" path="res://cayden/player.tscn" id="2_ph3h8"]
 [ext_resource type="PackedScene" uid="uid://bmfc5aalp6wo2" path="res://dustin/scenes/bat.tscn" id="3_vfw6y"]
 [ext_resource type="PackedScene" uid="uid://brciaeiql5x3l" path="res://dustin/scenes/slime.tscn" id="4_3qcir"]
+[ext_resource type="PackedScene" uid="uid://qmpwfcpfvu6p" path="res://dustin/scenes/music.tscn" id="5_vfw6y"]
 
 [node name="Game" type="Node2D" unique_id=1854314877]
 
@@ -11,7 +12,7 @@
 position = Vector2(-87, 163)
 
 [node name="bat" parent="." unique_id=2018259383 instance=ExtResource("3_vfw6y")]
-position = Vector2(-146, 114)
+position = Vector2(-66, 113)
 
 [node name="fakeplayer" parent="." unique_id=837909742 instance=ExtResource("2_ph3h8")]
 position = Vector2(-226, 160)
@@ -21,10 +22,7 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="slime2" parent="." unique_id=1519893719 instance=ExtResource("4_3qcir")]
-position = Vector2(1413, 36)
-
-[node name="bat2" parent="." unique_id=1515438539 instance=ExtResource("3_vfw6y")]
-position = Vector2(1689, 11)
+position = Vector2(60, 147)
 
 [node name="Label" type="Label" parent="." unique_id=2086342485]
 offset_left = -348.0
@@ -44,4 +42,5 @@ offset_bottom = 182.0
 theme_override_font_sizes/font_size = 9
 text = "Kill all enemies to win"
 
-[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=396215330]
+[node name="music" parent="." unique_id=1692247390 instance=ExtResource("5_vfw6y")]
+autoplay = false
