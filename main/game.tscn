@@ -21,9 +21,6 @@ position = Vector2(-226, 160)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="slime2" parent="." unique_id=1519893719 instance=ExtResource("4_3qcir")]
-position = Vector2(60, 147)
-
 [node name="Label" type="Label" parent="." unique_id=2086342485]
 offset_left = -348.0
 offset_top = 141.0
@@ -44,3 +41,9 @@ text = "Kill all enemies to win"
 
 [node name="music" parent="." unique_id=1692247390 instance=ExtResource("5_vfw6y")]
 autoplay = false
+
+[node name="bat2" parent="." unique_id=216929644 instance=ExtResource("3_vfw6y")]
+position = Vector2(1418, 16)
+
+[node name="slime" parent="." unique_id=1315194489 instance=ExtResource("4_3qcir")]
+position = Vector2(1739, 22)

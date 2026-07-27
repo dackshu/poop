@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://qmpwfcpfvu6p"]
 
-[ext_resource type="AudioStream" uid="uid://fjv50b4emkmv" path="res://dustin/341865__foolboymedia__tunnels.mp3" id="1_100sy"]
+[ext_resource type="AudioStream" uid="uid://c6piev45rn83f" path="res://341865__foolboymedia__tunnels.mp3" id="1_100sy"]
 
 [node name="music" type="AudioStreamPlayer2D" unique_id=1692247390]
 stream = ExtResource("1_100sy")
